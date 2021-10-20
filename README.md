@@ -8,7 +8,7 @@ Creating a Server and Deplying to Heroku
 
 ## Links to Application Deployment 
 
-[Pull Request](https://github.com/agrazda/basic-express-server/pull/1)
+[Pull Request](https://github.com/agrazda/basic-express-server/pull/1)  
 [Deployment](https://alexgrazda-basic-express-serve.herokuapp.com/)
 []()
 

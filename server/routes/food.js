@@ -16,7 +16,7 @@ async function getOneFood(request, response) {
 
   const foundFood = await food.findByPk(parseInt(id));
 
-  response.status(200);
+  response.status(404);
   response.send(foundFood);
 }
 
@@ -49,7 +49,7 @@ async function updateFood(request, response, next) {
     const updatedFood = await food.update({
       name: request.body.name,
       size: request.body.size,
-    });
+    }, { where: { id: request.params.id } });
 
     response.status(200);
     response.send(updatedFood);
@@ -60,7 +60,7 @@ async function updateFood(request, response, next) {
 
 async function deleteFood(request, response, next) {
   try {
-    const deletedFood = await food.destroy(req.params.id);
+    const deletedFood = await food.destroy({ where: { id: request.params.id} });
 
     response.status(200);
     response.send(deletedfood);

@@ -2,7 +2,7 @@
 
 
 // Entry point
-const app = require('.src/app.js');
+const server = require('./lib/app.js');
 
 
- app.start();
+ server.start(3000);

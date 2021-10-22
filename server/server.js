@@ -28,7 +28,7 @@ app.use('/clothes', clothesRouter);
 // app.post('/food');
 // app.put('/food');
 // app.delete('/food');
-app.use('/api', apiRouter);
+// app.use('/api', apiRouter);
 app.use('/food', foodRouter);
 
 module.exports = {

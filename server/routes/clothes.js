@@ -1,7 +1,7 @@
 "use strict";
 
-const express = require("express");
-const { clothes } = require("../../models");
+const express = require('express');
+const { clothes } = require('../../models');
 
 const router = express.Router();
 
@@ -16,7 +16,7 @@ async function getOneClothes(request, response) {
 
   const foundClothes = await clothes.findByPk(parseInt(id));
 
-  response.status(200);
+  response.status(404);
   response.send(foundClothes);
 }
 
@@ -49,7 +49,7 @@ async function updateClothes(request, response, next) {
     const updatedClothes = await clothes.update({
       name: request.body.name,
       size: request.body.size,
-    });
+    }, { where: { id: request.params.id } });
 
     response.status(200);
     response.send(updatedClothes);
@@ -60,7 +60,7 @@ async function updateClothes(request, response, next) {
 
 async function deleteClothes(request, response, next) {
   try {
-    const deletedClothes = await clothes.destroy(req.params.id);
+    const deletedClothes = await clothes.destroy({ where: { id: request.params.id} });
 
     response.status(200);
     response.send(deletedClothes);
